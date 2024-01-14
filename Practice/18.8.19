@@ -1,0 +1,25 @@
+def calculate_ticket_cost(age):
+    if age < 18:
+        return 0  # Бесплатно для посетителей младше 18 лет
+    elif 18 <= age < 25:
+        return 990  # Стоимость для посетителей от 18 до 25 лет
+    else:
+        return 1390  # Полная стоимость для посетителей от 25 лет и старше
+
+def main():
+    num_tickets = int(input("Введите количество билетов: "))
+    
+    total_cost = 0
+    for _ in range(num_tickets):
+        age = int(input("Введите возраст посетителя: "))
+        ticket_cost = calculate_ticket_cost(age)
+        total_cost += ticket_cost
+
+    # Применение скидки, если количество билетов больше трех
+    if num_tickets > 3:
+        total_cost *= 0.9  # 10% скидка
+
+    print(f"Общая стоимость билетов: {total_cost} руб.")
+
+if __name__ == "__main__":
+    main()
